@@ -1,22 +1,18 @@
+<script src="./Fics.js"></script>
 <template>
         <v-layout row>
-                <v-flex md6 lg6 offset-sm3 class="mt-5">
-                  <v-card>
-                    <v-toolbar dark>
-                      <v-toolbar-title>Fanfiction</v-toolbar-title>
-                      <v-spacer></v-spacer>
-                    </v-toolbar>
-                    <v-list>
-                      <div v-for="fiction in fanfiction.data.success" v-bind:key="fiction.fanfiction" @click="" dark>
-                          <v-list-tile >
-                              <v-list-tile-content>
-                                <v-list-tile-title v-text="fiction.fanfiction"></v-list-tile-title>
-                              </v-list-tile-content>
-                            </v-list-tile>
-                            <v-divider></v-divider>
-                        </div>
-                    </v-list>
-                  </v-card>
+                 <v-flex md12 lg12 class="ma-5">
+                        <v-data-table
+                        v-bind:headers="headers"
+                        :items="fics"
+                        hide-actions
+                        class="elevation-1">
+                      <template slot="items" scope="props">
+                        <td class="text-xs-right"><a v-bind:href="props.item.titleUrl">{{ props.item.title }}</a></td>
+                        <td class="text-xs-right"><a v-bind:href="props.item.authorUrl">{{ props.item.author }}</a></td>
+                        <td class="text-xs-right">{{ props.item.description }}</td>
+                      </template>
+                    </v-data-table>
                 </v-flex>
               </v-layout>
 </template>

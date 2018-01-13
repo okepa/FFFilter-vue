@@ -12,8 +12,12 @@ export default class Fanfiction extends Vue {
 
   getFanfiction(){
       HttpRequestsService.getRequest("fanfiction").then((response) => {
-        this.fanfiction = response;
+        this.fanfiction = response.data.success;
      }).catch((error) => {
      })
+  }
+
+  ficChosen(fics){
+      this.$router.push(`/fics?f=${fics}`)
   }
 }
