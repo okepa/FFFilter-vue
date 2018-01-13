@@ -6,6 +6,7 @@ import router from './router'
 import Navmenu from './components/Navmenu/Navmenu'
 import('../node_modules/vuetify/dist/vuetify.min.css')
 
+
 Vue.config.productionTip = false
 Vue.component('navmenu', Navmenu)
 

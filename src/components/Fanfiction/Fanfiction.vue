@@ -1,14 +1,20 @@
 <template>
-  <v-layout row>
-    <v-flex xs12 sm6 offset-sm3>
+ <v-layout row>
+    <v-flex md6 lg6 offset-sm3 class="mt-5">
       <v-card>
-        <v-toolbar class="cyan" dark>
+        <v-toolbar dark>
           <v-toolbar-title>Fanfiction</v-toolbar-title>
+          <v-spacer></v-spacer>
         </v-toolbar>
-        <v-list two-line>
-          <template v-for="fanfiction in fanfictions">
-
-          </template>
+        <v-list>
+          <div v-for="fiction in fanfiction.data.success" v-bind:key="fiction.fanfiction" @click="" dark>
+              <v-list-tile >
+                  <v-list-tile-content>
+                    <v-list-tile-title v-text="fiction.fanfiction"></v-list-tile-title>
+                  </v-list-tile-content>
+                </v-list-tile>
+                <v-divider></v-divider>
+            </div>
         </v-list>
       </v-card>
     </v-flex>

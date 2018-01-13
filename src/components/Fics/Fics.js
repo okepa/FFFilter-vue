@@ -4,16 +4,18 @@ import HttpRequestsService from '../../services/HttpRequestsService'
 
 @Component
 export default class Fanfiction extends Vue {
-    fanfiction = null;
+    fics = null;
 
     created(){
-        this.getFanfiction();
+        this.getFics();
     }
 
-  getFanfiction(){
-      HttpRequestsService.getRequest("fanfiction").then((response) => {
-        this.fanfiction = response;
+  getFics(){
+      HttpRequestsService.getRequest("fics").then((response) => {
+        this.fics = response;
+        console.log(this.fics);
      }).catch((error) => {
+
      })
   }
 }

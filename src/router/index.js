@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import Home from '@/components/Home/Home'
-import Fanfiction from '@/components/Fanfiction/Fanfiction'
+import Home from '@/components/Home/Home.vue'
+import Fanfictions from '@/components/Fanfiction/Fanfiction.vue'
+import Crossovers from '@/components/Crossovers/Crossovers.vue'
 import Vuetify from 'vuetify'
 
 Vue.use(Router)
@@ -11,11 +11,6 @@ Vue.use(Vuetify)
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'Home',
-      component: Home
-    },
-    {
       path: '/home',
       name: 'Home',
       component: Home
@@ -23,7 +18,12 @@ export default new Router({
     {
       path: '/fanfiction',
       name: 'Fanfiction',
-      component: Fanfiction
+      component: Fanfictions
+    },
+    {
+      path: '/crossovers',
+      name: 'Crossovers',
+      component: Crossovers
     }
   ]
 })
