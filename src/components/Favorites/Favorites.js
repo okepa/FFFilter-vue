@@ -1,0 +1,62 @@
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { Watch } from 'vue-property-decorator'
+import HttpRequestsService from '../../services/HttpRequestsService'
+
+@Component
+export default class Favorites extends Vue {
+    headers = [
+        {
+            text: 'Title',
+            align: 'center',
+            sortable: false,
+            value: 'title'
+        },
+        { text: 'Fanfiction', value: 'fanfiction', sortable: false, align: 'center' }
+    ];
+    favorites = [];
+    fanfiction = [];
+    favorite = {};
+    error = false;
+    success = false;
+    message = null;
+
+    created() {
+        this.getFavorites();
+    }
+
+    getFavorites() {
+        HttpRequestsService.getRequest(`favorites`).then((response) => {
+            this.favorites = response.data.favorites;
+            for(var i = 0; i < response.data.fanfiction.length; i++){
+                this.fanfiction.push(response.data.fanfiction[i].fanfiction)
+            }
+        }).catch((error) => {
+
+        })
+    }
+
+    addToFavorites(){
+        this.$validator.validateAll().then((result) => {
+            if(result){
+                HttpRequestsService.postRequest(`favorites`, this.favorite).then((response) => {
+                    this.message = "Fic added to favorites"
+                    this.success = true;
+                    this.favorite.title = null;
+                    this.favorite.fanfiction = null;
+                    this.getFavorites();
+                }).catch((error) => {
+                    this.message = "This fic already exists in your favorites"
+                    this.error = true;
+                    this.favorite.title = null;
+                    this.favorite.fanfiction = null;
+                });
+            }else{
+                this.message = "Please fill in all fields";
+                this.error = true;
+            }
+        
+    });
+    }
+
+}

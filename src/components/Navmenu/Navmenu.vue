@@ -7,7 +7,7 @@
       <v-btn flat to="/home">Home</v-btn>
       <v-btn flat to="fanfiction">Fanfiction</v-btn>
       <v-btn flat to="crossovers">Crossovers</v-btn>
-      <v-btn flat to="">Favorites</v-btn>
+      <v-btn flat to="favorites">Favorites</v-btn>
     </v-toolbar-items>
   </v-toolbar>
 </template>

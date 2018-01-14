@@ -4,6 +4,8 @@ import Home from '@/components/Home/Home.vue'
 import Fanfictions from '@/components/Fanfiction/Fanfiction.vue'
 import Fics from '@/components/Fics/Fics.vue'
 import Crossovers from '@/components/Crossovers/Crossovers.vue'
+import CrossoverFics from '@/components/CrossoverFics/CrossoverFics.vue'
+import Favorites from '@/components/Favorites/Favorites.vue'
 import Vuetify from 'vuetify'
 
 Vue.use(Router)
@@ -30,6 +32,16 @@ export default new Router({
       path: '/crossovers',
       name: 'Crossovers',
       component: Crossovers
+    },
+    {
+      path: '/crossoverfics',
+      name: 'CrossoverFics',
+      component: CrossoverFics
+    },
+    {
+      path: '/favorites',
+      name: 'Favorites',
+      component: Favorites
     }
   ]
 })

@@ -4,9 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Navmenu from './components/Navmenu/Navmenu'
+import VeeValidate from 'vee-validate';
+
 import('../node_modules/vuetify/dist/vuetify.min.css')
 
-
+Vue.use(VeeValidate);
 Vue.config.productionTip = false
 Vue.component('navmenu', Navmenu)
 
