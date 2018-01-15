@@ -2,7 +2,7 @@
   <v-layout row>
     <v-flex md6 lg6 offset-sm3 class="mt-5">
       <v-card>
-        <v-toolbar dark>
+        <v-toolbar dark class="indigo darken-4">
           <v-toolbar-title>Fanfiction</v-toolbar-title>
           <v-spacer></v-spacer>
         </v-toolbar>

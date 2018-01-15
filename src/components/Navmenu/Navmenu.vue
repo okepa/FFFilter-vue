@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar dark>
+  <v-toolbar dark class="indigo darken-4">
     <v-toolbar-title>FFFilter-vue</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-side-icon class="hidden-md-and-up"></v-toolbar-side-icon>

@@ -5,41 +5,80 @@ import { Watch } from 'vue-property-decorator'
 
 @Component
 export default class Crossovers extends Vue {
-    fanfiction = null;
+    fanfictionSelection1 = new Object();
+    fanfictionSelection2 = new Object();
     fanfiction1 = null;
     fanfiction2 = null;
     alert = false;
     message = "Cannot choose two of the same fanfiction";
-    active = false;
+    allActive = false;
+
+    items = [
+        { icon: true, title: 'Jason Oner', avatar: 'https://vuetifyjs.com/static/doc-images/lists/1.jpg', act: false },
+        { title: 'Travis Howard', avatar: 'https://vuetifyjs.com/static/doc-images/lists/2.jpg', act: false },
+        { title: 'Ali Connors', avatar: 'https://vuetifyjs.com/static/doc-images/lists/3.jpg', act: false },
+        { title: 'Cindy Baker', avatar: 'https://vuetifyjs.com/static/doc-images/lists/4.jpg', act: false },
+    ]
 
     created() {
-        this.getFanfiction();
+        this.getFanfiction1();
+        this.getFanfiction2();
     }
 
     @Watch('fanfiction1')
     onFanfiction1Selection(val) {
+        console.log(this.fanfiction1);
+        console.log(this.fanfiction2);
         if (this.fanfiction1 != null && this.fanfiction2 != null && this.fanfiction1 != this.fanfiction2) this.$router.push(`/crossoverfics?f=${this.fanfiction1}-and-${this.fanfiction2}`);
         else if (this.fanfiction1 != null && this.fanfiction2 != null && this.fanfiction1 == this.fanfiction2) this.alert = true;
     }
 
     @Watch('fanfiction2')
     onFanfiction2Selection(val) {
+        console.log(this.fanfiction1);
+        console.log(this.fanfiction2);
         if (this.fanfiction1 != null && this.fanfiction2 != null && this.fanfiction1 != this.fanfiction2) this.$router.push(`/crossoverfics?f=${this.fanfiction1}-and-${this.fanfiction2}`);
         else if (this.fanfiction1 != null && this.fanfiction2 != null && this.fanfiction1 == this.fanfiction2) this.alert = true;
     }
 
-    getFanfiction() {
+    getFanfiction1() {
         HttpRequestsService.getRequest("fanfiction").then((response) => {
-            this.fanfiction = response.data.success;
-            for(var i = 0; i < response.data.success.length; i++){
-                this.fanfiction[i].active = false;
-            }
-            console.log(this.fanfiction);
+            this.fanfictionSelection1 = response.data.success;
         }).catch((error) => {
         })
     }
-    f(active){
-        
-        console.log(this.fanfiction)
+
+    getFanfiction2() {
+        HttpRequestsService.getRequest("fanfiction").then((response) => {          
+            this.fanfictionSelection2 = response.data.success;
+        }).catch((error) => {
+        })
+    }
+
+    setActive1(f, index) {
+        this.fanfictionSelection1[index].active = !this.fanfictionSelection1[index].active;
+        if (this.fanfictionSelection1[index].active) {
+            this.fanfiction1 = f;
+        } else {
+            this.fanfiction1 = null;
+        }
+    }
+
+    setActive2(f, index) {
+        if (f == 'All') {
+            this.allActive = !this.allActive
+            if (this.allActive) {
+                this.fanfiction2 = f;
+            } else {
+                this.fanfiction2 = null;
+            }
+        } else {
+            this.fanfictionSelection2[index].active = !this.fanfictionSelection2[index].active;
+            if (this.fanfictionSelection2[index].active) {
+                this.fanfiction2 = f;
+            } else {
+                this.fanfiction2 = null;
+            }
+        }
     }
 }

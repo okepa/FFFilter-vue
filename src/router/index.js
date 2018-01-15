@@ -6,10 +6,8 @@ import Fics from '@/components/Fics/Fics.vue'
 import Crossovers from '@/components/Crossovers/Crossovers.vue'
 import CrossoverFics from '@/components/CrossoverFics/CrossoverFics.vue'
 import Favorites from '@/components/Favorites/Favorites.vue'
-import Vuetify from 'vuetify'
 
 Vue.use(Router)
-Vue.use(Vuetify)
 
 export default new Router({
   routes: [
