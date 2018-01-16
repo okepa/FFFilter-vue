@@ -10,7 +10,7 @@
                         <v-toolbar-title>Fanfiction</v-toolbar-title>
                         <v-spacer></v-spacer>
                     </v-toolbar>
-                    <v-list>
+                    <v-list class="pb-0 pt-0">
                         <div v-for="(item1, index) in fanfictionSelection1" v-bind:key="item1.fanfiction" dark>
                             <v-list-tile @click="setActive1(item1.fanfiction, index)" v-model="item1.active">
                                 <v-list-tile-content>
@@ -29,7 +29,7 @@
                         <v-toolbar-title>Fanfiction</v-toolbar-title>
                         <v-spacer></v-spacer>
                     </v-toolbar>
-                    <v-list>
+                    <v-list class="pb-0 pt-0">
                         <v-list-tile @click="setActive2('All', null)" v-model="allActive">
                             <v-list-tile-content>
                                 <v-list-tile-title>All</v-list-tile-title>

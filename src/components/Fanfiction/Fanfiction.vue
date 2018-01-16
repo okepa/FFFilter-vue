@@ -6,9 +6,9 @@
           <v-toolbar-title>Fanfiction</v-toolbar-title>
           <v-spacer></v-spacer>
         </v-toolbar>
-        <v-list>
+        <v-list class="pb-0 pt-0">
           <div v-for="fiction in fanfiction" v-bind:key="fiction.fanfiction" dark>
-            <v-list-tile @click="ficChosen(fiction.fanfiction)">
+            <v-list-tile  @click="ficChosen(fiction.fanfiction)">
               <v-list-tile-content>
                 <v-list-tile-title v-text="fiction.fanfiction"></v-list-tile-title>
               </v-list-tile-content>
