@@ -28,9 +28,7 @@ export default class Favorites extends Vue {
     getFavorites() {
         HttpRequestsService.getRequest(`favorites`).then((response) => {
             this.favorites = response.data.favorites;
-            for(var i = 0; i < response.data.fanfiction.length; i++){
-                this.fanfiction.push(response.data.fanfiction[i].fanfiction)
-            }
+            this.fanfiction = response.data.fanfiction;
         }).catch((error) => {
 
         })

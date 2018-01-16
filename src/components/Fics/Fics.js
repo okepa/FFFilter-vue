@@ -16,13 +16,16 @@ export default class Fics extends Vue {
     { text: 'Description', value: 'description', sortable: false, align: 'left' }
   ];
 
+  sort = [{ name: "Favorites", id: 4 },{name: "Follows", id:5},{name: "Reviews", id:3},{name: "Update Date", id:1}];
+  time = [{ name: "Updated within 6 months", id: 4 },{name: "All", id:99},{name: "Published within 6 months", id:14},{name: "Published within 1 year", id:15}];
+  sortChosen = null;
+  timeChosen = null;
   fics = [];
   page = 1;
   url = null;
 
   created() {
     this.url = location.href.substring(location.href.indexOf("?"));
-    console.log(this.url)
     this.getFics(this.url);
   }
 
@@ -42,7 +45,20 @@ export default class Fics extends Vue {
       }
     }).catch((error) => {
 
-    })
+    });
+  }
+
+  search(){
+    console.log(`fics${this.url}&s=${this.sortChosen}&t=${this.timeChosen}`)
+    HttpRequestsService.getRequest(`fics${this.url}&s=${this.sortChosen}&t=${this.timeChosen}`).then((response) => {
+      this.fics = response.data.success;
+      for (var i = 0; i < this.fics.length; i++) {
+        this.fics[i].titleUrl = "https://www.fanfiction.net/" + this.fics[i].titleUrl;
+        this.fics[i].authorUrl = "https://www.fanfiction.net/" + this.fics[i].authorUrl;
+      }
+    }).catch((error) => {
+
+    });
   }
 
 }
