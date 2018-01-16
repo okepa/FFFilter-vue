@@ -51,7 +51,7 @@ export default class Fics extends Vue {
 
     search(){
         console.log(`fics${this.url}&s=${this.sortChosen}&t=${this.timeChosen}`)
-        HttpRequestsService.getRequest(`fics${this.url}&s=${this.sortChosen}&t=${this.timeChosen}`).then((response) => {
+        HttpRequestsService.getRequest(`crossovers${this.url}&s=${this.sortChosen}&t=${this.timeChosen}`).then((response) => {
           this.fics = response.data.success;
           for (var i = 0; i < this.fics.length; i++) {
             this.fics[i].titleUrl = "https://www.fanfiction.net/" + this.fics[i].titleUrl;
