@@ -22,7 +22,6 @@
                     </v-list>
                 </v-card>
             </v-flex>
-
             <v-flex md6 lg6 class="ml-5 mt-5 mb-5 mr-5">
                 <v-card>
                     <v-toolbar dark class="indigo darken-4">

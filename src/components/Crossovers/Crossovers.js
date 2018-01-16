@@ -13,13 +13,6 @@ export default class Crossovers extends Vue {
     message = "Cannot choose two of the same fanfiction";
     allActive = false;
 
-    items = [
-        { icon: true, title: 'Jason Oner', avatar: 'https://vuetifyjs.com/static/doc-images/lists/1.jpg', act: false },
-        { title: 'Travis Howard', avatar: 'https://vuetifyjs.com/static/doc-images/lists/2.jpg', act: false },
-        { title: 'Ali Connors', avatar: 'https://vuetifyjs.com/static/doc-images/lists/3.jpg', act: false },
-        { title: 'Cindy Baker', avatar: 'https://vuetifyjs.com/static/doc-images/lists/4.jpg', act: false },
-    ]
-
     created() {
         this.getFanfiction1();
         this.getFanfiction2();

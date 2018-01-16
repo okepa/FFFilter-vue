@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import Navmenu from './components/Navmenu/Navmenu'
+import Navmenu from './components/Navmenu/Navmenu.vue'
 import VeeValidate from 'vee-validate';
 import Vuetify from 'vuetify'
 
