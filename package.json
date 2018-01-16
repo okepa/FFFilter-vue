@@ -19,6 +19,7 @@
     "module": "^1.2.5",
     "mongodb": "^3.0.1",
     "mongoose": "^4.13.9",
+    "opn": "^5.2.0",
     "resolve-from": "^4.0.0",
     "shelljs": "^0.7.8",
     "vee-validate": "^2.0.3",
