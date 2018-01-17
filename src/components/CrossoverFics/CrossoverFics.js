@@ -18,8 +18,8 @@ export default class Fics extends Vue {
     ];
     sort = [{ name: "Favorites", id: 4 },{name: "Follows", id:5},{name: "Reviews", id:3},{name: "Update Date", id:1}];
     time = [{ name: "Updated within 6 months", id: 4 },{name: "All", id:99},{name: "Published within 6 months", id:14},{name: "Published within 1 year", id:15}];
-    sortChosen = null;
-    timeChosen = null;
+    sortChosen = { name: "Favorites", id: 4 };
+    timeChosen = { name: "Updated within 6 months", id: 4 };
     fics = [];
     page = 1;
     url = null;
@@ -43,15 +43,13 @@ export default class Fics extends Vue {
                 this.fics[i].titleUrl = "https://www.fanfiction.net/" + this.fics[i].titleUrl;
                 this.fics[i].authorUrl = "https://www.fanfiction.net/" + this.fics[i].authorUrl;
             }
-            console.log(this.fics)
         }).catch((error) => {
 
         })
     }
 
     search(){
-        console.log(`fics${this.url}&s=${this.sortChosen}&t=${this.timeChosen}`)
-        HttpRequestsService.getRequest(`crossovers${this.url}&s=${this.sortChosen}&t=${this.timeChosen}`).then((response) => {
+        HttpRequestsService.getRequest(`crossovers${this.url}&s=${this.sortChosen.id}&t=${this.timeChosen.id}`).then((response) => {
           this.fics = response.data.success;
           for (var i = 0; i < this.fics.length; i++) {
             this.fics[i].titleUrl = "https://www.fanfiction.net/" + this.fics[i].titleUrl;
