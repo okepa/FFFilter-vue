@@ -20,16 +20,12 @@ export default class Crossovers extends Vue {
 
     @Watch('fanfiction1')
     onFanfiction1Selection(val) {
-        console.log(this.fanfiction1);
-        console.log(this.fanfiction2);
         if (this.fanfiction1 != null && this.fanfiction2 != null && this.fanfiction1 != this.fanfiction2) this.$router.push(`/crossoverfics?f=${this.fanfiction1}-and-${this.fanfiction2}`);
         else if (this.fanfiction1 != null && this.fanfiction2 != null && this.fanfiction1 == this.fanfiction2) this.alert = true;
     }
 
     @Watch('fanfiction2')
     onFanfiction2Selection(val) {
-        console.log(this.fanfiction1);
-        console.log(this.fanfiction2);
         if (this.fanfiction1 != null && this.fanfiction2 != null && this.fanfiction1 != this.fanfiction2) this.$router.push(`/crossoverfics?f=${this.fanfiction1}-and-${this.fanfiction2}`);
         else if (this.fanfiction1 != null && this.fanfiction2 != null && this.fanfiction1 == this.fanfiction2) this.alert = true;
     }
