@@ -7,7 +7,7 @@ export default {
             var headers = {
                 headers: { 'Access-Control-Allow-Origin': '*' }
             }
-            axios.get(process.env.ARL + route, headers)
+            axios.get(process.env.API_URL + route, headers)
                 .then((response) => {
                     resolve(response);
                 })
@@ -21,7 +21,7 @@ export default {
             var headers = {
                 headers: { 'Access-Control-Allow-Origin': '*' }
             }
-            axios.post(process.env.ARL + route, item, headers)
+            axios.post(process.env.API_URL + route, item, headers)
                 .then((response) => {
                     resolve(response);
                 })
