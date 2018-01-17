@@ -6,9 +6,9 @@ import router from './router'
 import Navmenu from './components/Navmenu/Navmenu.vue'
 import VeeValidate from 'vee-validate';
 import Vuetify from 'vuetify'
-//import '../css/style.css'
+//import Style from './style.css'
 //import './vuetify.min.css'
-//import('../css/styles.css')
+//import('./style.css')
 import('../node_modules/vuetify/dist/vuetify.min.css')
 
 Vue.config.productionTip = false

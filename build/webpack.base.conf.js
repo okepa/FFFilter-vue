@@ -62,17 +62,17 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
+        })
       }
-      // {
-      //   test: /\.css$/,
-      //   use: ExtractTextPlugin.extract({
-      //     fallback: "style-loader",
-      //     use: "css-loader"
-      //   })
-      // }
     ]
-  }
-  // plugins: [
-  //   new ExtractTextPlugin("style.css"),
-  // ]
+  },
+  plugins: [
+    new ExtractTextPlugin("style.css")
+  ]
 }
