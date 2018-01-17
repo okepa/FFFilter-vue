@@ -1,6 +1,7 @@
 <template>
   <v-app id="app">
     <navmenu/>
+    <loginstatus/>
     <router-view/>
   </v-app>
 </template>
