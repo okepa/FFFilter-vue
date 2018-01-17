@@ -6,13 +6,13 @@ import router from './router'
 import Navmenu from './components/Navmenu/Navmenu.vue'
 import VeeValidate from 'vee-validate';
 import Vuetify from 'vuetify'
-
 import('../node_modules/vuetify/dist/vuetify.min.css')
 
-Vue.use(VeeValidate);
 Vue.config.productionTip = false
 Vue.component('navmenu', Navmenu)
 Vue.use(Vuetify);
+Vue.use(VeeValidate);
+router.replace('/home');
 
 /* eslint-disable no-new */
 new Vue({
