@@ -8,6 +8,9 @@ import Navmenu from './components/Navmenu/Navmenu.vue'
 import LoginStatus from './components/Login/LoginStatus.vue'
 import VeeValidate from 'vee-validate';
 import Vuetify from 'vuetify'
+//import Style from './style.css'
+//import './vuetify.min.css'
+//import('./style.css')
 import('../node_modules/vuetify/dist/vuetify.min.css')
 
 Vue.config.productionTip = false
