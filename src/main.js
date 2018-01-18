@@ -14,7 +14,6 @@ Vue.component('navmenu', Navmenu)
 Vue.component('loginstatus', LoginStatus)
 Vue.use(Vuetify);
 Vue.use(VeeValidate);
-router.replace('/home');
 
 /* eslint-disable no-new */
 new Vue({

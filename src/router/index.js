@@ -13,53 +13,57 @@ Vue.use(Router)
 
 export default new Router({
   routes: [{
-      path: '/login',
-      name: 'Login',
-      component: Login
-    },
-    {
-      path: '/logout',
-      name: 'Logout',
-      beforeEnter(to, from, next) {
-        auth.logout()
-        next('/home')
-      }
-    },
-    {
-      path: '/home',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/fanfiction',
-      name: 'Fanfiction',
-      component: Fanfictions
-    },
-    {
-      path: '/fics',
-      name: 'Fics',
-      component: Fics
-    },
-    {
-      path: '/crossovers',
-      name: 'Crossovers',
-      component: Crossovers
-    },
-    {
-      path: '/crossoverfics',
-      name: 'CrossoverFics',
-      component: CrossoverFics
-    },
-    {
-      path: '/favorites',
-      name: 'Favorites',
-      component: Favorites,
-      beforeEnter: requireAuth
+    path: '/',
+    redirect: '/home'
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/logout',
+    name: 'Logout',
+    beforeEnter(to, from, next) {
+      auth.logout()
+      next('/home')
     }
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/fanfiction',
+    name: 'Fanfiction',
+    component: Fanfictions
+  },
+  {
+    path: '/fics',
+    name: 'Fics',
+    component: Fics
+  },
+  {
+    path: '/crossovers',
+    name: 'Crossovers',
+    component: Crossovers
+  },
+  {
+    path: '/crossoverfics',
+    name: 'CrossoverFics',
+    component: CrossoverFics
+  },
+  {
+    path: '/favorites',
+    name: 'Favorites',
+    component: Favorites,
+    beforeEnter: requireAuth
+  }
   ]
 })
 
-function requireAuth (to, from, next) {
+function requireAuth(to, from, next) {
   if (!auth.loggedIn()) {
     next({
       path: '/login',
