@@ -4,18 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Navmenu from './components/Navmenu/Navmenu.vue'
-//import Login from './components/Login/Login.vue'
 import LoginStatus from './components/Login/LoginStatus.vue'
 import VeeValidate from 'vee-validate';
 import Vuetify from 'vuetify'
-//import Style from './style.css'
-//import './vuetify.min.css'
-//import('./style.css')
 import('../node_modules/vuetify/dist/vuetify.min.css')
 
 Vue.config.productionTip = false
 Vue.component('navmenu', Navmenu)
-//Vue.component('login', Login)
 Vue.component('loginstatus', LoginStatus)
 Vue.use(Vuetify);
 Vue.use(VeeValidate);
