@@ -1,11 +1,11 @@
 <template>
     <div>
         <v-layout row>
-            <v-flex md12 lg12 class=" text-lg-right text-md-right" v-if="loginStatus">
-                <v-btn @click="changeLoginStatus" class="indigo darken-4" dark flat>Log Out</v-btn>
+            <v-flex md12 lg12 class=" text-lg-right text-md-right" v-if="token != null">
+                <v-btn class="indigo darken-4" to="/logout" dark flat>Log Out</v-btn>
             </v-flex>
-            <v-flex md12 lg12 class="text-lg-right text-md-right" v-if="!loginStatus">
-                <v-btn @click="changeLoginStatus" class="indigo darken-4" dark flat>Log In</v-btn>
+            <v-flex md12 lg12 class="text-lg-right text-md-right" v-if="token == null">
+                <v-btn class="indigo darken-4" to="/login" dark flat>Log In</v-btn>
             </v-flex>
         </v-layout>
     </div>

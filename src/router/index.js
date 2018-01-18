@@ -8,6 +8,7 @@ import CrossoverFics from '@/components/CrossoverFics/CrossoverFics.vue'
 import Favorites from '@/components/Favorites/Favorites.vue'
 import auth from '@/auth'
 import Login from '@/components/Login/Login.vue'
+import { EventBus } from '../main';
 
 Vue.use(Router)
 
@@ -19,12 +20,14 @@ export default new Router({
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: Login,
+    beforeEnter: checkLoginStatus
   },
   {
     path: '/logout',
     name: 'Logout',
     beforeEnter(to, from, next) {
+      checkLoginStatus(to, from, next)
       auth.logout()
       next('/home')
     }
@@ -32,27 +35,32 @@ export default new Router({
   {
     path: '/home',
     name: 'Home',
-    component: Home
+    component: Home,
+    beforeEnter: checkLoginStatus
   },
   {
     path: '/fanfiction',
     name: 'Fanfiction',
-    component: Fanfictions
+    component: Fanfictions,
+    beforeEnter: checkLoginStatus
   },
   {
     path: '/fics',
     name: 'Fics',
-    component: Fics
+    component: Fics,
+    beforeEnter: checkLoginStatus
   },
   {
     path: '/crossovers',
     name: 'Crossovers',
-    component: Crossovers
+    component: Crossovers,
+    beforeEnter: checkLoginStatus
   },
   {
     path: '/crossoverfics',
     name: 'CrossoverFics',
-    component: CrossoverFics
+    component: CrossoverFics,
+    beforeEnter: checkLoginStatus
   },
   {
     path: '/favorites',
@@ -62,8 +70,8 @@ export default new Router({
   }
   ]
 })
-
 function requireAuth(to, from, next) {
+  checkLoginStatus
   if (!auth.loggedIn()) {
     next({
       path: '/login',
@@ -72,4 +80,9 @@ function requireAuth(to, from, next) {
   } else {
     next()
   }
+}
+
+function checkLoginStatus(to, from, next){
+  EventBus.$emit('loginStatus');
+  next()
 }

@@ -7,6 +7,7 @@ import Navmenu from './components/Navmenu/Navmenu.vue'
 import LoginStatus from './components/Login/LoginStatus.vue'
 import VeeValidate from 'vee-validate';
 import Vuetify from 'vuetify'
+export const EventBus = new Vue();
 import('../node_modules/vuetify/dist/vuetify.min.css')
 
 Vue.config.productionTip = false

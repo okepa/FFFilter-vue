@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export default {
-
     getRequest(route) {
         return new Promise((resolve, reject) => {
             var headers = {

@@ -2,18 +2,27 @@ import Vue from 'vue'
 import Component from 'vue-class-component'
 import HttpRequestsService from '../../services/HttpRequestsService'
 import auth from '../../auth'
+import { EventBus } from '../../main';
+
 
 @Component
 export default class LoginStatus extends Vue {
     loggedIn = auth.loggedIn();
-    loginStatus = false;
+    token = null;
+    
+    created(){
+        EventBus.$on('loginStatus', () => {
+            this.emitLoginStatus();
+        });
+        this.emitLoginStatus()
+    }
 
-    changeLoginStatus(){
-        this.loginStatus = !this.loginStatus;
-        if(this.loginStatus){
-            this.$router.push("/login");
-        }else{
-            this.$router.push("/logout");
-        }    
+    emitLoginStatus(){
+        if(localStorage.token != null){
+            this.token = localStorage.token;
+        } else {
+            this.token = null;
+        }
+
     }
 }
