@@ -27,12 +27,11 @@
 
 <script>
 import auth from '../../auth'
-//import LoginStatus from './LoginStatus.vue'
 
 export default {
   data () {
     return {
-      email: 'joe@example.com',
+      email: 'okepa@yahoo.co.uk',
       pass: '',
       error: false,
       loggedIn: auth.loggedIn()
@@ -49,7 +48,6 @@ export default {
         if (!loggedIn) {
           this.error = true
         } else {
-           // LoginStatus.LoginStatus = !LoginStatus.LoginStatus
           this.$router.replace(this.$route.query.redirect || '/home') 
         }
       })

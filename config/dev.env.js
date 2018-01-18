@@ -4,5 +4,5 @@ const prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  API_URL: '"https://fffilter-vue-api.herokuapp.com/"'
+  API_URL: '"http://localhost:3000/"'
 })
